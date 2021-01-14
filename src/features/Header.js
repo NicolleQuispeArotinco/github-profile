@@ -7,26 +7,24 @@ import styles from "../styles/Header.module.css";
 
 import { Formik, Form, Field} from "formik";
 
-function SearchForm(){
-  return(
-    <Formik>    
-      <Form className={styles.form}>
-        <Field type="text" placeholder="Search" className={styles.searchInput}/>
-        <button className={styles.searchButton}>
-          <img src={searchIcon}/>
-        </button>
-      </Form>
-    </Formik>
+function SearchForm({query , setQuery}){
+  return(   
+    <div className={styles.form}>
+      <input type="text" placeholder="Search" className={styles.searchInput} value={query} onChange={(e) => setQuery(e.target.value)}/>
+      <button className={styles.searchButton}>
+        <img src={searchIcon}/>
+      </button>
+    </div>
   )
 }
 
-function Header(){
+function Header({query , setQuery}){
   return(
     <header className={styles.container}>
       <div className={styles.headerContent}>
         <img src={githubIcon}/>
         {/* <div > */}
-        <SearchForm/>
+        <SearchForm query={query} setQuery={setQuery}/>
         {/* </div> */}
       </div>
     </header>
