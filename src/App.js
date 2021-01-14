@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 
-import SearchForm from "../src/features/SearchForm";
+import SearchForm from "./features/SearchForm";
+import Header from "./features/Header"
 
 function App() {
   return (
     <div className="App">
+      <Header/>
       <SearchForm/>
     </div>
   );
