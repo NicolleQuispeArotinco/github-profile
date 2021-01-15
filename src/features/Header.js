@@ -16,7 +16,7 @@ function Header({query , setQuery}){
   return(
     <header className={styles.container}>
       <div className={styles.headerContent}>
-        <img src={githubIcon}/>
+        <img src={githubIcon} alt="githubIcon"/>
         <SearchForm query={query} setQuery={setQuery}/>
       </div>
     </header>
