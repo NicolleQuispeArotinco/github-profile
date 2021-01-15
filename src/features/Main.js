@@ -4,7 +4,7 @@ import Header from "./Header";
 import Info from "./Info";
 
 function Main(){
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("takeo");
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -18,13 +18,12 @@ function Main(){
     fetchUsers();
   }, [query]);
 
+  console.log(users)
+
   return(
     <div>
       <Header query={query} setQuery={setQuery}/>
-      {users && (
-        <Info/>
-      )}
-      
+      <Info user={users}/>
     </div>
   )
 }
