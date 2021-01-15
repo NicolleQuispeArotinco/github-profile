@@ -4,16 +4,17 @@ import Header from "./Header";
 import Info from "./Info";
 
 function Main(){
-  const [query, setQuery] = useState("takeo");
+  const [query, setQuery] = useState("");
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
       const response = await fetch(
-        `https://api.github.com/users/${query}`
+        `https://api.github.com/users`
       );
       const data = await response.json();
-      setUsers(data);
+      const usersBy = data.filter(user => user.login.toLowerCase().includes(query))
+      setUsers(usersBy);
     };
     fetchUsers();
   }, [query]);
@@ -21,7 +22,7 @@ function Main(){
   return(
     <div>
       <Header query={query} setQuery={setQuery}/>
-      <Info user={users} query={query}/>
+      <Info users={users} query={query}/>
     </div>
   )
 }

@@ -4,20 +4,18 @@ import styles from "../styles/Info.module.css";
 
 import { Link } from "react-router-dom";
 
-function Info({user, query}){
-  console.log(user)
+function Info({users, query}){
   return(
     <div className={styles.container}>
-      {query == "" ? (
+      {query === "" ? (
         <h1>Search users</h1>
       ): (
         <div>
-          {user.message ? (
+          {users.length === 0 ? (
             <h1>Not Found</h1>
           ):
-          
           <div>
-            {/* {users.map((user) => ( */}
+            {users.map((user) => (
               <li key={user.id} className={styles.userContent}>
                 <div className={styles.userInfo}>
                   <img src={user.avatar_url} alt={user.login} className={styles.profilePicture}/>
@@ -29,7 +27,7 @@ function Info({user, query}){
                   </Link>
                 </button>
               </li>
-            {/* ))} */}
+            ))}
             </div>
           }
         </div>
