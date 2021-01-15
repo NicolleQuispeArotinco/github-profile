@@ -18,7 +18,6 @@ function App() {
             <Main/>
           </Route>
           <Route exact path="/:login" component={User}/>
-        {/* <SearchForm/> */}
         </Switch>
       </div>
     </Router>

@@ -11,22 +11,12 @@
   align-items: center;
 }
 
-.form{
-  margin-left: 2rem;
-  display: flex;
-}
-.searchButton{
-  margin-left: 5px;
-  background-color: transparent;
-  border: 1px solid #30363D;
-  padding: 6px;
-}
-
 .searchInput{
   width: 100%;
   border: 1px solid #2f353b;
   background-color: #0D1117;
   padding: 8px 10px;
+  margin-left: 2rem;
   color: #DEDEDE;
   border-radius: 5px;
   transition: width 1s;
@@ -34,7 +24,7 @@
 
 .searchInput:focus{
   outline: #2f353b;
-  width: 120%;
+  width: 130%;
 }
 
 .searchInput::-webkit-input-placeholder {

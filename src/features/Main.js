@@ -17,13 +17,11 @@ function Main(){
     };
     fetchUsers();
   }, [query]);
-
-  console.log(users)
-
+  
   return(
     <div>
       <Header query={query} setQuery={setQuery}/>
-      <Info user={users}/>
+      <Info user={users} query={query}/>
     </div>
   )
 }
