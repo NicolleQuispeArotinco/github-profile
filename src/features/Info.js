@@ -2,6 +2,7 @@ import React from "react";
 
 import styles from "../styles/Info.module.css";
 
+import { Link } from "react-router-dom";
 
 function Info({user}){
   console.log(user)
@@ -19,7 +20,9 @@ function Info({user}){
               {user.name ? user.name: ""} <span>@{user.login}</span> 
             </div>
             <button>
-              <a href={user.html_url}>View</a>
+              <Link to={`/${user.login}`}>
+                View
+              </Link>
             </button>
           </li>
         {/* ))} */}

@@ -1,14 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
 
-import Main from "./features/Main"
+import Main from "./features/Main";
+import User from "./features/User"
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <Main/>
-      {/* <SearchForm/> */}
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <Main/>
+          </Route>
+          <Route exact path="/:login" component={User}/>
+        {/* <SearchForm/> */}
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

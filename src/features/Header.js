@@ -5,8 +5,6 @@ import searchIcon from "../images/searchIcon.svg";
 
 import styles from "../styles/Header.module.css";
 
-import { Formik, Form, Field} from "formik";
-
 function SearchForm({query , setQuery}){
   return(   
     <div className={styles.form}>
