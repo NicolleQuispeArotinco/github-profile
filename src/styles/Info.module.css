@@ -13,6 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 2.5rem;
 }
 .userInfo{
   list-style: none;
@@ -33,4 +34,18 @@
   width: 70px;
   height: 70px;
   margin-right: 1.5rem;
+}
+
+.viewButton{
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #30363D;
+  background-color: transparent;
+  font-size: 1rem;
+  cursor:pointer;
+}
+
+.viewButton a{
+  color: #282b30;
+  text-decoration: none;
 }

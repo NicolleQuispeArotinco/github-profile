@@ -19,7 +19,7 @@ function Info({user}){
               <img src={user.avatar_url} alt={user.login} className={styles.profilePicture}/>
               {user.name ? user.name: ""} <span>@{user.login}</span> 
             </div>
-            <button>
+            <button className={styles.viewButton}>
               <Link to={`/${user.login}`}>
                 View
               </Link>
