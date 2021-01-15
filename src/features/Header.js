@@ -5,7 +5,7 @@ import searchIcon from "../images/searchIcon.svg";
 
 import styles from "../styles/Header.module.css";
 
-function SearchForm({query , setQuery}){
+function SearchForm({query="", setQuery=""}){
   return(   
     <div className={styles.form}>
       <input type="text" placeholder="Search" className={styles.searchInput} value={query} onChange={(e) => setQuery(e.target.value)}/>

@@ -1,9 +1,62 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
-function User(){
+import Header from "./Header";
+
+import styles from "../styles/User.module.css";
+
+function User(params){
+  let  username = params.match.params.login;
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const response = await fetch(
+        `https://api.github.com/users/${username}`
+      );
+      const data = await response.json();
+      setUser(data);
+    };
+    if (params.match.params.login) {
+      fetchUser();
+    }
+    fetchUser();
+  }, [username]);
+
+  console.log(username);
+  
   return(
     <div>
-      <h1>user</h1>
+      <Header/>
+      {user && (
+        <div className={styles.container}>
+          <div className={styles.userInfo}>
+            <div>
+              <img src={user.avatar_url} alt={user.login} className={styles.profilePicture}/>
+              <div className={styles.nameContainer}>
+                {user.name ? (
+                  <h1>{user.name}</h1>
+                ): null}
+                <p>@{user.login}</p>
+              </div>
+              {user.bio? 
+                <p>{user.bio}</p>
+              : null
+              }
+            </div>
+            <ul className={styles.moreInfo}>
+              <li>Followers: <span>{user.followers}</span></li>
+              <li>Following: <span>{user.following}</span></li>
+              <li>Company: {user.company ? <span>{user.company}</span> : ""}</li>
+              <li>Location: {user.location ? <span>{user.location}</span> : ""}</li>
+              <li>Twitter: {user.twitter_username ? <span>{user.twitter_username}</span>: ""}</li>
+              <li>Blog: {user.blog ? <a href={user.blog}>{user.blog}</a>: ""}</li>
+            </ul>
+          </div>
+          <div className={styles.buttonContainer}>
+            <button className={styles.buttonRepositories} disabled="true">View repositories</button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
