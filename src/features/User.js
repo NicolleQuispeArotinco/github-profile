@@ -39,7 +39,7 @@ function User(params){
                 <p>@{user.login}</p>
               </div>
               {user.bio? 
-                <p>{user.bio}</p>
+                <p className={styles.bio}>{user.bio}</p>
               : null
               }
             </div>
