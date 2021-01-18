@@ -5,13 +5,12 @@ import Header from "./Header";
 import styles from "../styles/User.module.css";
 
 function User(params){
-  let  username = params.match.params.login;
   const [user, setUser] = useState();
 
   useEffect(() => {
     const fetchUser = async () => {
       const response = await fetch(
-        `https://api.github.com/users/${username}`
+        `https://api.github.com/users/${params.match.params.login}`
       );
       const data = await response.json();
       setUser(data);
@@ -20,9 +19,8 @@ function User(params){
       fetchUser();
     }
     fetchUser();
-  }, [username]);
+  }, [params.match.params.login]);
 
-  console.log(username);
   
   return(
     <div>

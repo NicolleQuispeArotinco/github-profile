@@ -4,25 +4,24 @@ import Header from "./Header";
 import Info from "./Info";
 
 function Main(){
-  const [query, setQuery] = useState("");
-  const [users, setUsers] = useState([]);
+  const [query, setQuery] = useState("a");
+  const [user, setUser] = useState({});
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchUser = async () => {
       const response = await fetch(
-        `https://api.github.com/users`
+        `https://api.github.com/users/${query}`
       );
       const data = await response.json();
-      const usersBy = data.filter(user => user.login.toLowerCase().includes(query))
-      setUsers(usersBy);
+      setUser(data);
     };
-    fetchUsers();
+    fetchUser();
   }, [query]);
   
   return(
     <div>
       <Header query={query} setQuery={setQuery}/>
-      <Info users={users} query={query}/>
+      <Info user={user} query={query}/>
     </div>
   )
 }
